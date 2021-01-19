@@ -1,15 +1,14 @@
 try:
-    decimal = int(input("Number in decimal: "))
-    to_system = int(input("Target numeral system (number <= 10) "))
+    decimal = int(input("Integer in decimal: "))
+    to_system = int(input("Target numeral system: "))
 except:
     print("Invalid number")
-if to_system > 10:
-    print("Unsupported numeral system. Only supports decimal and \"lower\".")
 else:
-    target = ""
+    binary = ""
     
     while decimal >= 1:
-        target += str(decimal % to_system)
+        binary += str(decimal % to_system) if decimal % to_system < 10 else chr(97 + ((decimal % to_system) - 10))
         decimal //= to_system
         
-    print("Result: ", target[::-1])
+    print("Result: ", binary[::-1])
+
